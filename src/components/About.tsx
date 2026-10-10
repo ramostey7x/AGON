@@ -84,19 +84,18 @@ export const About: React.FC = () => {
           <div className="lg:col-span-6 space-y-6">
             <div className="relative border border-[#161A20] bg-[#161A20]/20 overflow-hidden group">
               <div className="aspect-[4/5] sm:aspect-[4/4] overflow-hidden">
-                <img
-                  src="/images/hero_agon_studio.webp"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.src.endsWith('.jpg')) {
-                      target.src = '/images/hero_agon_studio.jpg';
-                    }
-                  }}
-                  alt="AGON Digital Headquarters e Atelier"
-                  className="w-full h-full object-cover object-center grayscale contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/images/hero_agon_studio.webp" />
+                  <img
+                    src="/images/hero_agon_studio.jpg"
+                    alt="AGON Digital Headquarters e Atelier"
+                    className="w-full h-full object-cover object-center grayscale contrast-125 brightness-95 group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
+                    width={1376}
+                    height={768}
+                  />
+                </picture>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D] via-transparent to-transparent opacity-90" />
 

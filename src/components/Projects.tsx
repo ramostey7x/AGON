@@ -164,19 +164,18 @@ export const Projects: React.FC<ProjectsProps> = ({ onStartProject }) => {
             >
               {/* Image Frame */}
               <div className="relative aspect-[16/10] overflow-hidden bg-[#080A0D]">
-                <img
-                  src={project.image}
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.src.endsWith('.jpg')) {
-                      target.src = target.src.replace('.webp', '.jpg');
-                    }
-                  }}
-                  alt={`${project.title} - ${project.category}`}
-                  className="w-full h-full object-cover object-center grayscale contrast-125 brightness-95 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                <picture>
+                  <source type="image/webp" srcSet={project.image} />
+                  <img
+                    src={project.image.replace('.webp', '.jpg')}
+                    alt={`${project.title} - ${project.category}`}
+                    className="w-full h-full object-cover object-center grayscale contrast-125 brightness-95 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                    loading="lazy"
+                    decoding="async"
+                    width={1200}
+                    height={896}
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D] via-transparent to-transparent opacity-80" />
 
                 {/* Micro badge overlay */}
@@ -265,17 +264,17 @@ export const Projects: React.FC<ProjectsProps> = ({ onStartProject }) => {
 
               {/* Modal Image */}
               <div className="relative aspect-[16/9] overflow-hidden border border-[#161A20]">
-                <img
-                  src={selectedProject.image}
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.src.endsWith('.jpg')) {
-                      target.src = target.src.replace('.webp', '.jpg');
-                    }
-                  }}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
+                <picture>
+                  <source type="image/webp" srcSet={selectedProject.image} />
+                  <img
+                    src={selectedProject.image.replace('.webp', '.jpg')}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                    decoding="async"
+                    width={1200}
+                    height={896}
+                  />
+                </picture>
               </div>
 
               {/* Metrics Bar */}

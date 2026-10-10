@@ -75,19 +75,18 @@ export const Hero: React.FC<HeroProps> = ({ onStartProject, onViewProjects }) =>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8 relative group overflow-hidden border border-[#161A20] bg-[#161A20]/40">
               <div className="relative aspect-[16/8] sm:aspect-[16/7] overflow-hidden">
-                <img
-                  src="/images/hero_agon_studio.webp"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.src.endsWith('.jpg')) {
-                      target.src = '/images/hero_agon_studio.jpg';
-                    }
-                  }}
-                  alt="AGON Studio - Arquitetura, tecnologia e estratégia digital de ponta"
-                  className="w-full h-full object-cover object-center grayscale contrast-125 brightness-90 group-hover:scale-[1.02] transition-transform duration-700"
-                  loading="eager"
-                  referrerPolicy="no-referrer"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/images/hero_agon_studio.webp" />
+                  <img
+                    src="/images/hero_agon_studio.jpg"
+                    alt="AGON Studio - Arquitetura, tecnologia e estratégia digital de ponta"
+                    className="w-full h-full object-cover object-center grayscale contrast-125 brightness-90 group-hover:scale-[1.02] transition-transform duration-700"
+                    loading="eager"
+                    decoding="async"
+                    width={1376}
+                    height={768}
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D] via-[#080A0D]/40 to-transparent" />
                 <div className="absolute bottom-4 left-5 right-5 flex flex-wrap items-center justify-between gap-4 text-xs">
                   <div className="flex items-center gap-2 text-[#E5E7EB]">
