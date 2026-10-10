@@ -1,0 +1,6 @@
+{
+  "name": "AGON Digital — Construímos o digital que leva negócios para frente",
+  "description": "AGON Digital cria websites, marcas e experiências digitais para empresas que querem crescer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
